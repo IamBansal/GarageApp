@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey"
+    android:elevation="5dp"
+    android:layout_margin="7dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/ivCar"
+        android:layout_width="125dp"
+        android:layout_marginEnd="7dp"
+        android:scaleType="fitXY"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_electric_car_24"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_toEndOf="@id/ivCar"
+        android:id="@+id/tvMake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivCar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Car make" />
+
+    <TextView
+        android:id="@+id/tvModel"
+        android:layout_toEndOf="@id/ivCar"
+        android:layout_below="@id/tvMake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivCar"
+        app:layout_constraintTop_toBottomOf="@+id/tvMake"
+        tools:text="Car model" />
+
+    <Button
+        android:layout_below="@id/tvModel"
+        android:layout_toEndOf="@id/ivCar"
+        android:id="@+id/btnAddCarImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Car Image"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDelete"
+        app:layout_constraintStart_toEndOf="@+id/ivCar"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvModel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAddCarImage"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>
