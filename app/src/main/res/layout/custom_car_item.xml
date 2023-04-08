@@ -70,7 +70,7 @@
         android:layout_below="@id/tvModel"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_delete_24"
+        android:src="@drawable/delete"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

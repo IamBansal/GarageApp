@@ -1,5 +1,6 @@
 package com.example.garageapp.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -8,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.garageapp.model.Result
 import com.example.garageapp.databinding.CustomCarItemBinding
 import com.example.garageapp.ui.CarViewModel
+import com.example.garageapp.ui.screens.DashBoard
 
-class LocalCarAdapter(val viewModel: CarViewModel): RecyclerView.Adapter<LocalCarAdapter.ArticleViewHolder>() {
+class LocalCarAdapter(val context: Context, val viewModel: CarViewModel): RecyclerView.Adapter<LocalCarAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(private var binding: CustomCarItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(car: Result){
@@ -18,12 +20,15 @@ class LocalCarAdapter(val viewModel: CarViewModel): RecyclerView.Adapter<LocalCa
             binding.btnDelete.setOnClickListener {
                 viewModel.deleteCar(car)
             }
+            binding.btnAddCarImage.setOnClickListener {
+                (context as DashBoard).customImageSelectionDialog(binding.ivCar)
+            }
         }
     }
 
     private val differCallback = object : DiffUtil.ItemCallback<Result>(){
         override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.Model_Name == newItem.Model_Name
         }
 
         override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
