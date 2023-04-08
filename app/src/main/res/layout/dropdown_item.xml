@@ -7,6 +7,7 @@
     android:textAllCaps="false"
     android:padding="7dp"
     android:layout_margin="5dp"
+    android:textColor="?android:textColorPrimary"
     android:textSize="22sp"
     android:layout_height="wrap_content">
 

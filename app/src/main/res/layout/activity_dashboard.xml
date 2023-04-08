@@ -16,32 +16,36 @@
         app:layout_constraintBottom_toTopOf="@id/tvAddNew"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="20dp"
+        android:textColor="?android:textColorPrimary"
         android:text="Dashboard"
         tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnLogout"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:text="Logout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tvAddNew"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
+        android:backgroundTint="@color/appColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="HardcodedText" />
 
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/tvDash"
-        app:layout_constraintBottom_toTopOf="@id/layout1"
-        app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/tvAddNew"
-        android:layout_marginHorizontal="20dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Add a new car"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="Add a new car"
+        android:textSize="18sp"
+        android:textColor="?android:textColorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/layout1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDash"
         tools:ignore="HardcodedText" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -60,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="?android:textColorPrimary"
             android:inputType="none"
             android:hint="Select make"
             tools:ignore="HardcodedText" />
@@ -84,6 +89,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="none"
+            android:textColor="?android:textColorPrimary"
             android:hint="Select model"
             tools:ignore="HardcodedText" />
 
@@ -95,6 +101,8 @@
         android:layout_height="wrap_content"
         android:text="Add car"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/appColor"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintBottom_toTopOf="@id/tvCars"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +119,7 @@
         android:layout_marginVertical="10dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="?android:textColorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="HardcodedText" />

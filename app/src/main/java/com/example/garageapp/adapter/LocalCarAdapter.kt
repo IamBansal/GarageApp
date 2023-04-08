@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.garageapp.R
 import com.example.garageapp.model.Result
 import com.example.garageapp.databinding.CustomCarItemBinding
 import com.example.garageapp.ui.CarViewModel
@@ -24,7 +25,7 @@ class LocalCarAdapter(val context: Context, val viewModel: CarViewModel): Recycl
             binding.btnAddCarImage.setOnClickListener {
                 (context as DashBoard).customImageSelectionDialog(binding.ivCar, car)
             }
-            Glide.with(itemView).load(car.imagePath).into(binding.ivCar)
+            Glide.with(itemView).load(car.imagePath).placeholder(R.drawable.electric_car).into(binding.ivCar)
         }
     }
 

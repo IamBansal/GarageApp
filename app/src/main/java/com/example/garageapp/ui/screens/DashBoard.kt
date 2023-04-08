@@ -80,12 +80,13 @@ class DashBoard : AppCompatActivity() {
         }
 
         binding.btnAddCar.setOnClickListener {
-            car.Model_Name = binding.atvModel.text.toString()
-            if (binding.atvMake.text.isNotEmpty() && binding.atvModel.text.isNotEmpty()){
-                viewModel.saveCar(car)
-                Snackbar.make(it, "Car saved successfully.", Snackbar.LENGTH_SHORT).show()
-            } else {
+
+            if (binding.atvMake.text.isEmpty() || binding.atvModel.text.isEmpty()){
                 Snackbar.make(it, "Select both maker and model first.", Snackbar.LENGTH_SHORT).show()
+            } else {
+                viewModel.saveCar(car)
+                car.Model_Name = binding.atvModel.text.toString()
+                Snackbar.make(it, "Car saved successfully.", Snackbar.LENGTH_SHORT).show()
             }
         }
 
@@ -158,6 +159,7 @@ class DashBoard : AppCompatActivity() {
                     Log.d("LoadingInModel", "In loading state")
                     showProgressBar()
                 }
+                else -> {}
             }
 
         }
@@ -219,7 +221,6 @@ class DashBoard : AppCompatActivity() {
                             resource?.let {
                                 val bitmap: Bitmap = resource.toBitmap()
                                 val imagePath = saveImageToInternalStorage(bitmap)
-                                Toast.makeText(this@DashBoard, imagePath, Toast.LENGTH_SHORT).show()
                                 car.imagePath = imagePath
                                 viewModel.saveCar(car)
                             }
@@ -236,7 +237,6 @@ class DashBoard : AppCompatActivity() {
                 val thumbnail: Bitmap = it.get("data") as Bitmap
                 Glide.with(this).load(thumbnail).centerCrop().into(carImage)
                 val imagePath = saveImageToInternalStorage(thumbnail)
-                Toast.makeText(this, imagePath, Toast.LENGTH_SHORT).show()
                 car.imagePath = imagePath
                 viewModel.saveCar(car)
             }
