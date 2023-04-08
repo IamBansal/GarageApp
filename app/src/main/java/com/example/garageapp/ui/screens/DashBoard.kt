@@ -38,6 +38,7 @@ import com.example.garageapp.ui.CarViewModel
 import com.example.garageapp.ui.CarViewModelProviderFactory
 import com.example.garageapp.utils.Resource
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -72,6 +73,11 @@ class DashBoard : AppCompatActivity() {
         }
 
         viewModel.getCarMake()
+
+        binding.btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, AuthActivity::class.java)).apply { finish() }
+        }
 
         binding.btnAddCar.setOnClickListener {
             car.Model_Name = binding.atvModel.text.toString()
