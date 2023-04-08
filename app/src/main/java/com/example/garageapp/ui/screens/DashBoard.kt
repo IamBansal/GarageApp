@@ -214,6 +214,8 @@ class DashBoard : AppCompatActivity() {
                                 val bitmap: Bitmap = resource.toBitmap()
                                 val imagePath = saveImageToInternalStorage(bitmap)
                                 Toast.makeText(this@DashBoard, imagePath, Toast.LENGTH_SHORT).show()
+                                car.imagePath = imagePath
+                                viewModel.saveCar(car)
                             }
                             return false
                         }
@@ -229,16 +231,19 @@ class DashBoard : AppCompatActivity() {
                 Glide.with(this).load(thumbnail).centerCrop().into(carImage)
                 val imagePath = saveImageToInternalStorage(thumbnail)
                 Toast.makeText(this, imagePath, Toast.LENGTH_SHORT).show()
+                car.imagePath = imagePath
+                viewModel.saveCar(car)
             }
         }
     }
 
-    fun customImageSelectionDialog(ivCar: ImageView) {
+    fun customImageSelectionDialog(ivCar: ImageView, carSelected: Result) {
         val dialog = Dialog(this)
         val dialogBinding = CustomDialogImageSelectionBinding.inflate(layoutInflater)
         dialog.setContentView(dialogBinding.root)
 
         carImage = ivCar
+        car = carSelected
 
         dialogBinding.camera.setOnClickListener {
             imageFromCamera()

@@ -10,5 +10,6 @@ data class Result(
     val Make_ID: Int,
     val Make_Name: String,
     var Model_ID: Int? = null,
-    var Model_Name: String? = null
+    var Model_Name: String? = null,
+    var imagePath: String? = null
 ): java.io.Serializable

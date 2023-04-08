@@ -8,7 +8,7 @@ import com.example.garageapp.model.Result
 
 @Database(
     entities = [Result::class],
-    version = 3
+    version = 4
 )
 abstract class CarDatabase : RoomDatabase(){
 
